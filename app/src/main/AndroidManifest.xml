@@ -12,11 +12,12 @@
         <activity android:name=".acticity.ChoseAreaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".acticity.WeatherActivity"></activity>
+        <receiver android:name=".receiver.AutoUpdateReceiver"/>
+        <service android:name=".service.AutoUpdateService"/>
     </application>
 
 </manifest>
