@@ -8,16 +8,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".BaseApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".acticity.ChoseAreaActivity">
+        <activity android:name=".acticity.SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".acticity.WeatherActivity"></activity>
-        <receiver android:name=".receiver.AutoUpdateReceiver"/>
-        <service android:name=".service.AutoUpdateService"/>
+        <activity android:name=".acticity.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--toast半透明框-->
+    <color name="black_translucent">#80000000</color>
+    <!-- 纯白色 -->
+    <color name="white">#ffffff</color>
 </resources>
