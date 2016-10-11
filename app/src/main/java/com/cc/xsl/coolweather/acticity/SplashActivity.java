@@ -27,7 +27,7 @@ public class SplashActivity extends BaseActivity {
             public void run() {
                 gotoChoseArea();
             }
-        },3000);
+        },2000);
     }
 
     private void gotoChoseArea() {

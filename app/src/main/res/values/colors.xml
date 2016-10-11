@@ -7,4 +7,5 @@
     <color name="black_translucent">#80000000</color>
     <!-- 纯白色 -->
     <color name="white">#ffffff</color>
+    <color name="talk_bg">#d8e0e8</color>
 </resources>

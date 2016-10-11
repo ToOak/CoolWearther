@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".acticity.MainActivity"></activity>
+        <activity android:name=".acticity.TalkActivity"></activity>
     </application>
 
 </manifest>

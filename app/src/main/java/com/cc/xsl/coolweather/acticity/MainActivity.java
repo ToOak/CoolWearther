@@ -1,10 +1,17 @@
 package com.cc.xsl.coolweather.acticity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
@@ -13,10 +20,14 @@ import com.cc.xsl.coolweather.util.LogUtil;
 import com.cc.xsl.coolweather.util.ResUtil;
 import com.cc.xsl.coolweather.util.ToastUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by xushuailong on 2016/10/10.
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+    private TextView titleBack, titleContent, titleEdit;
 
     public static void actionStart(Context context,String data1,String data2){
         Intent intent = new Intent(context,MainActivity.class);
@@ -28,8 +39,31 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
+        initData();
+        initView();
+        viewEvent();
+    }
+
+    /**
+     * 处理页面之间的数据传递
+     */
+    private void initData() {
         Intent intent = getIntent();
         LogUtil.d(intent.getStringExtra("param1") + "\t" + intent.getStringExtra("param2"));
+    }
+
+    private void initView() {
+        titleBack = (TextView) findViewById(R.id.title).findViewById(R.id.title_back);
+        titleContent = (TextView) findViewById(R.id.title).findViewById(R.id.title_content);
+        titleEdit = (TextView) findViewById(R.id.title).findViewById(R.id.title_edit);
+    }
+
+    private void viewEvent() {
+        titleContent.setText(ResUtil.getString(R.string.login));
+        titleBack.setText(ResUtil.getString(R.string.exit));
+//        titleEdit.setText(ResUtil.getString(R.string.talking));
+        titleEdit.setVisibility(View.GONE);
+        titleBack.setOnClickListener(this);
     }
 
     @Override
@@ -50,10 +84,43 @@ public class MainActivity extends BaseActivity {
                 BaseApplication.getApp().finishAll();
                 break;
             }
+            case R.id.talking:{
+                Intent intent = new Intent(this,TalkActivity.class);
+                startActivity(intent);
+                break;
+            }
             default:{
                 ToastUtil.showErrorMessage();
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.title_back:{
+
+                final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setCancelable(true);
+//                dialog.setTitle(ResUtil.getString(R.string.sure_exit));
+                dialog.setMessage(R.string.sure_exit);
+                dialog.setPositiveButton(R.string.enter, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ToastUtil.showErrorMessage(null, ResUtil.getString(R.string.bye));
+                        BaseApplication.getApp().finishAll();
+                    }
+                });
+                dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                dialog.show();
+                break;
+            }
+        }
     }
 }
