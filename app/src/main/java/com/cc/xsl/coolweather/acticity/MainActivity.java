@@ -1,6 +1,9 @@
 package com.cc.xsl.coolweather.acticity;
 
 import android.app.AlertDialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +19,8 @@ import android.widget.TextView;
 import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
+import com.cc.xsl.coolweather.fragment.HomeFragement;
+import com.cc.xsl.coolweather.fragment.OtherFragment;
 import com.cc.xsl.coolweather.util.LogUtil;
 import com.cc.xsl.coolweather.util.ResUtil;
 import com.cc.xsl.coolweather.util.ToastUtil;
@@ -27,7 +32,9 @@ import java.util.List;
  * Created by xushuailong on 2016/10/10.
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener {
-    private TextView titleBack, titleContent, titleEdit;
+    private TextView titleBack, titleContent, titleEdit, homeBtn, otherBtn;
+    private Fragment homeFragment, otherFragment;
+    private FragmentManager fragmentManager;
 
     public static void actionStart(Context context,String data1,String data2){
         Intent intent = new Intent(context,MainActivity.class);
@@ -56,14 +63,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         titleBack = (TextView) findViewById(R.id.title).findViewById(R.id.title_back);
         titleContent = (TextView) findViewById(R.id.title).findViewById(R.id.title_content);
         titleEdit = (TextView) findViewById(R.id.title).findViewById(R.id.title_edit);
+        homeBtn = (TextView) findViewById(R.id.btn_home);
+        otherBtn = (TextView) findViewById(R.id.btn_other);
+//        showHomeFragment();
     }
 
     private void viewEvent() {
-        titleContent.setText(ResUtil.getString(R.string.login));
+        titleContent.setText(ResUtil.getString(R.string.home));
         titleBack.setText(ResUtil.getString(R.string.exit));
 //        titleEdit.setText(ResUtil.getString(R.string.talking));
         titleEdit.setVisibility(View.GONE);
         titleBack.setOnClickListener(this);
+        homeBtn.setOnClickListener(this);
+        otherBtn.setOnClickListener(this);
     }
 
     @Override
@@ -121,6 +133,45 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 dialog.show();
                 break;
             }
+            case R.id.btn_home:{
+                showHomeFragment();
+                break;
+            }
+            case R.id.btn_other:{
+                showOtherFragment();
+                break;
+            }
         }
+    }
+
+    private void showHomeFragment() {
+        if (fragmentManager == null){
+            fragmentManager = getFragmentManager();
+        }
+        HomeFragement fragement = new HomeFragement();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_layout,fragement);
+        transaction.commit();
+        homeBtn.setEnabled(false);
+        otherBtn.setEnabled(true);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
+    }
+
+    private void showOtherFragment() {
+        if (fragmentManager == null){
+            fragmentManager = getFragmentManager();
+        }
+        OtherFragment fragment = new OtherFragment();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_layout,fragment);
+//        transaction.addToBackStack("other");
+        transaction.commit();
+        otherBtn.setEnabled(false);
+        homeBtn.setEnabled(true);
     }
 }
