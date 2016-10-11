@@ -158,8 +158,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
-
         super.onBackPressed();
+        LogUtil.d("onBackPressed");
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        LogUtil.d("onKeyDown");
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            LogUtil.d("keyCode == KeyEvent.KEYCODE_BACK");
+            hideApp();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void showOtherFragment() {

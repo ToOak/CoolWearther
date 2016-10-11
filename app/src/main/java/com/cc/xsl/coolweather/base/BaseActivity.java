@@ -1,6 +1,7 @@
 package com.cc.xsl.coolweather.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -23,5 +24,15 @@ public class BaseActivity extends Activity{
     protected void onDestroy() {
         super.onDestroy();
         BaseApplication.getApp().removeActivity(this);
+    }
+
+    /**
+     * 退出方法
+     */
+    public void hideApp() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 }
