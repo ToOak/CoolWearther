@@ -168,6 +168,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (keyCode == KeyEvent.KEYCODE_BACK){
             LogUtil.d("keyCode == KeyEvent.KEYCODE_BACK");
             hideApp();
+            // return is "true", intercept
             return true;
         }
         return super.onKeyDown(keyCode, event);
