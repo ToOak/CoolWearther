@@ -130,6 +130,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                     }
                 });
+
+                // TODO what the difference ?
 //                dialog.show();
                 AlertDialog alertDialog = dialog.create();
                 alertDialog.show();
