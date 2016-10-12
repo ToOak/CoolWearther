@@ -130,7 +130,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                     }
                 });
-                dialog.show();
+//                dialog.show();
+                AlertDialog alertDialog = dialog.create();
+                alertDialog.show();
                 break;
             }
             case R.id.btn_home:{
