@@ -1,0 +1,7 @@
+
+download apache:  http://httpd.apache.org/download.cgi#apache24
+
+用命令行模式启动apache，并带上参数，
+apache会提示你哪句有误，
+然后就可以针对性的解决，命令如下：
+    httpd.exe -w -n "Apache2" -k start
