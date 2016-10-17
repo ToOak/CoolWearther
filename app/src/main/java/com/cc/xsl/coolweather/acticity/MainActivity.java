@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
+import com.cc.xsl.coolweather.base.BaseOnClick;
 import com.cc.xsl.coolweather.fragment.HomeFragement;
 import com.cc.xsl.coolweather.fragment.OtherFragment;
 import com.cc.xsl.coolweather.util.LogUtil;
@@ -76,8 +77,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         titleBack.setOnClickListener(this);
         homeBtn.setOnClickListener(this);
         otherBtn.setOnClickListener(this);
+
+//        titleBack.setOnClickListener(new BaseOnClick());
+//        homeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ToastUtil.showMessage("onHomeClick:" + this.getClass().getName().toString());
+//            }
+//        });
+//        otherBtn.setOnClickListener(new OtherClick());
     }
 
+    class OtherClick implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            ToastUtil.showMessage(this.getClass().getName());
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
