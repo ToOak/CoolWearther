@@ -83,7 +83,7 @@ public class ToastUtil {
 
         if (!TextUtils.isEmpty(title)) {
             ((TextView) view.findViewById(R.id.toast_title)).setText(title);
-             view.findViewById(R.id.toast_title).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.toast_title).setVisibility(View.VISIBLE);
         }
         if (!TextUtils.isEmpty(content)) {
             ((TextView) view.findViewById(R.id.toast_content)).setText(content);

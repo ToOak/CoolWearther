@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include android:id="@+id/title"
-        layout="@layout/global_title"/>
+    <include
+        android:id="@+id/title"
+        layout="@layout/global_title" />
+
     <FrameLayout
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <fragment
             android:id="@+id/main_fragment"
             android:name="com.cc.xsl.coolweather.fragment.HomeFragement"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </FrameLayout>
+
     <LinearLayout
-        android:background="@color/colorAccent"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="5dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
+
         <TextView
-            android:gravity="center"
             android:id="@+id/btn_home"
-            android:text="home"
-            android:textSize="24sp"
-            android:textColor="#fff"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
-        <TextView
             android:gravity="center"
+            android:text="home"
+            android:textColor="#fff"
+            android:textSize="24sp" />
+
+        <TextView
             android:id="@+id/btn_other"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="other"
             android:textColor="#fff"
-            android:layout_width="0dp"
-            android:textSize="24sp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:textSize="24sp" />
     </LinearLayout>
 </LinearLayout>

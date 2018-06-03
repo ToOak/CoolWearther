@@ -12,14 +12,16 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="20dp">
+
         <TextView
             android:id="@+id/toast_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:text="@string/warn"
             android:textColor="@color/white"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/toast_content"
             android:layout_width="wrap_content"

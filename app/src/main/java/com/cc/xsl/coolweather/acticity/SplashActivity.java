@@ -27,14 +27,14 @@ public class SplashActivity extends BaseActivity {
             public void run() {
                 gotoChoseArea();
             }
-        },2000);
+        }, 2000);
     }
 
     private void gotoChoseArea() {
 //        Intent intent = new Intent(SplashActivity.this,MainActivity.class);
 //        startActivity(intent);
 //        MainActivity.actionStart(this,"welcom",new Date().toLocaleString());
-        MainActivity.actionStart(this,"welcom", DateFormat.getDateTimeInstance().format(new Date()));
+        MainActivity.actionStart(this, "welcom", DateFormat.getDateTimeInstance().format(new Date()));
         overridePendingTransition(R.anim.in_action, R.anim.out_action);
         finish();
     }

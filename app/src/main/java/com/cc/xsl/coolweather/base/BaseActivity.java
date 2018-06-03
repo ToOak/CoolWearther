@@ -12,7 +12,7 @@ import com.cc.xsl.coolweather.util.LogUtil;
 /**
  * Created by xushuailong on 2016/10/10.
  */
-public class BaseActivity extends Activity{
+public class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

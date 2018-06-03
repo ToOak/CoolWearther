@@ -21,6 +21,7 @@ import java.util.List;
 
 public class MsgAdapter extends ArrayAdapter {
     private int resourceId;
+
     public MsgAdapter(Context context, int resource, List<Msg> objects) {
         super(context, resource, objects);
         resourceId = resource;
@@ -32,23 +33,23 @@ public class MsgAdapter extends ArrayAdapter {
         Msg msg = (Msg) getItem(position);
         View view;
         ViewHolder viewHolder;
-        if (convertView == null){
-            view = LayoutInflater.from(getContext()).inflate(R.layout.msg_item,null);
+        if (convertView == null) {
+            view = LayoutInflater.from(getContext()).inflate(R.layout.msg_item, null);
             viewHolder = new ViewHolder();
             viewHolder.leftLayout = (LinearLayout) view.findViewById(R.id.left_layout);
             viewHolder.rightLayout = (LinearLayout) view.findViewById(R.id.right_layout);
             viewHolder.leftMsg = (TextView) view.findViewById(R.id.left_msg);
             viewHolder.rightMsg = (TextView) view.findViewById(R.id.right_msg);
             view.setTag(viewHolder);
-        }else {
+        } else {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
-        if (msg.getType() == Msg.TYPE_RECEIVED){
+        if (msg.getType() == Msg.TYPE_RECEIVED) {
             viewHolder.leftLayout.setVisibility(View.VISIBLE);
             viewHolder.rightLayout.setVisibility(View.GONE);
             viewHolder.leftMsg.setText(msg.getContent());
-        }else if (msg.getType() == Msg.TYPE_SEND){
+        } else if (msg.getType() == Msg.TYPE_SEND) {
             viewHolder.leftLayout.setVisibility(View.GONE);
             viewHolder.rightLayout.setVisibility(View.VISIBLE);
             viewHolder.rightMsg.setText(msg.getContent());

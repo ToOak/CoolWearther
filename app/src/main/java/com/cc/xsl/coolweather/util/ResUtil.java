@@ -23,7 +23,7 @@ public class ResUtil {
                 .getString(resId, object);
     }
 
-    public static Bitmap getBitmap(int res){
-        return  BitmapFactory.decodeResource(BaseApplication.getApp().getResources(), res);
+    public static Bitmap getBitmap(int res) {
+        return BitmapFactory.decodeResource(BaseApplication.getApp().getResources(), res);
     }
 }

@@ -1,7 +1,7 @@
 package com.cc.xsl.coolweather.acticity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -12,37 +12,31 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
-import com.cc.xsl.coolweather.base.BaseOnClick;
 import com.cc.xsl.coolweather.fragment.HomeFragement;
 import com.cc.xsl.coolweather.fragment.OtherFragment;
 import com.cc.xsl.coolweather.util.LogUtil;
 import com.cc.xsl.coolweather.util.ResUtil;
 import com.cc.xsl.coolweather.util.ToastUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by xushuailong on 2016/10/10.
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView titleBack, titleContent, titleEdit, homeBtn, otherBtn;
-    private Fragment homeFragment, otherFragment;
     private FragmentManager fragmentManager;
 
-    public static void actionStart(Context context,String data1,String data2){
-        Intent intent = new Intent(context,MainActivity.class);
-        intent.putExtra("param1",data1);
-        intent.putExtra("param2",data2);
+    public static void actionStart(Context context, String data1, String data2) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("param1", data1);
+        intent.putExtra("param2", data2);
         context.startActivity(intent);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +51,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      */
     private void initData() {
         Intent intent = getIntent();
-        LogUtil.d(intent.getStringExtra("param1") + "\t" + intent.getStringExtra("param2"));
+        LogUtil.e(intent.getStringExtra("param1") + "\t" + intent.getStringExtra("param2"));
     }
 
+    @SuppressLint("CutPasteId")
     private void initView() {
         titleBack = (TextView) findViewById(R.id.title).findViewById(R.id.title_back);
         titleContent = (TextView) findViewById(R.id.title).findViewById(R.id.title_content);
@@ -72,52 +67,38 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void viewEvent() {
         titleContent.setText(ResUtil.getString(R.string.home));
         titleBack.setText(ResUtil.getString(R.string.exit));
-//        titleEdit.setText(ResUtil.getString(R.string.talking));
-        titleEdit.setVisibility(View.GONE);
+        titleEdit.setText(ResUtil.getString(R.string.talking));
+//        titleEdit.setVisibility(View.GONE);
+        titleEdit.setOnClickListener(this);
         titleBack.setOnClickListener(this);
         homeBtn.setOnClickListener(this);
         otherBtn.setOnClickListener(this);
-
-//        titleBack.setOnClickListener(new BaseOnClick());
-//        homeBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ToastUtil.showMessage("onHomeClick:" + this.getClass().getName().toString());
-//            }
-//        });
-//        otherBtn.setOnClickListener(new OtherClick());
     }
 
-    class OtherClick implements View.OnClickListener{
-        @Override
-        public void onClick(View v) {
-            ToastUtil.showMessage(this.getClass().getName());
-        }
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.about:{
+        switch (item.getItemId()) {
+            case R.id.about: {
                 ToastUtil.showMessage(R.string.about);
                 break;
             }
-            case R.id.exit:{
+            case R.id.exit: {
                 ToastUtil.showErrorMessage(null, ResUtil.getString(R.string.bye));
                 BaseApplication.getApp().finishAll();
                 break;
             }
-            case R.id.talking:{
-                Intent intent = new Intent(this,TalkActivity.class);
+            case R.id.talking: {
+                Intent intent = new Intent(this, TalkActivity.class);
                 startActivity(intent);
                 break;
             }
-            default:{
+            default: {
                 ToastUtil.showErrorMessage();
             }
         }
@@ -126,8 +107,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.title_back:{
+        switch (view.getId()) {
+            case R.id.title_back: {
 
                 final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 dialog.setCancelable(true);
@@ -147,30 +128,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     }
                 });
 
-                // TODO what the difference ?
+                // TODO what the difference ?  看看源码啊 ！
 //                dialog.show();
                 AlertDialog alertDialog = dialog.create();
                 alertDialog.show();
                 break;
             }
-            case R.id.btn_home:{
+            case R.id.btn_home: {
                 showHomeFragment();
                 break;
             }
-            case R.id.btn_other:{
+            case R.id.btn_other: {
                 showOtherFragment();
                 break;
+            }
+            case R.id.title_edit:{
+                Intent intent = new Intent(this, TalkActivity.class);
+                startActivity(intent);
             }
         }
     }
 
     private void showHomeFragment() {
-        if (fragmentManager == null){
+        if (fragmentManager == null) {
             fragmentManager = getFragmentManager();
         }
         HomeFragement fragement = new HomeFragement();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.main_layout,fragement);
+        transaction.replace(R.id.main_layout, fragement);
         transaction.commit();
         homeBtn.setEnabled(false);
         otherBtn.setEnabled(true);
@@ -178,15 +163,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
+        LogUtil.e("onBackPressed");
         super.onBackPressed();
-        LogUtil.d("onBackPressed");
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        LogUtil.d("onKeyDown");
-        if (keyCode == KeyEvent.KEYCODE_BACK){
-            LogUtil.d("keyCode == KeyEvent.KEYCODE_BACK");
+        LogUtil.e("onKeyDown");
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            LogUtil.e("keyCode == KeyEvent.KEYCODE_BACK");
             hideApp();
             // return is "true", intercept
             return true;
@@ -195,12 +180,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void showOtherFragment() {
-        if (fragmentManager == null){
+        if (fragmentManager == null) {
             fragmentManager = getFragmentManager();
         }
         OtherFragment fragment = new OtherFragment();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.main_layout,fragment);
+        transaction.replace(R.id.main_layout, fragment);
 //        transaction.addToBackStack("other");
         transaction.commit();
         otherBtn.setEnabled(false);

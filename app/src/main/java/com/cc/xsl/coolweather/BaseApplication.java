@@ -24,23 +24,27 @@ public class BaseApplication extends Application {
         context = getApplicationContext();
     }
 
-    public static Context getContext(){
+    public static Context getContext() {
         return context;
     }
-    public static BaseApplication getApp(){
+
+    public static BaseApplication getApp() {
         return app;
     }
-    public void addActivity(Activity activity){
+
+    public void addActivity(Activity activity) {
         if (!activities.contains(activity)) {
             activities.add(activity);
         }
     }
-    public void removeActivity(Activity activity){
+
+    public void removeActivity(Activity activity) {
         activities.remove(activity);
     }
-    public void finishAll(){
-        for (Activity activity : activities){
-            if (!activity.isFinishing()){
+
+    public void finishAll() {
+        for (Activity activity : activities) {
+            if (!activity.isFinishing()) {
                 activity.finish();
             }
         }

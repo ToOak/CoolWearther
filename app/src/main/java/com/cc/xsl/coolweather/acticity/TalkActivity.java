@@ -28,6 +28,7 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
     private Button send;
     private MsgAdapter adapter;
     private List<Msg> msgs = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,14 +41,14 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
         listView = (ListView) findViewById(R.id.msg_list_view);
         inputText = (EditText) findViewById(R.id.input_text);
         send = (Button) findViewById(R.id.send);
-        adapter = new MsgAdapter(this,R.layout.msg_item,getMsgs());
+        adapter = new MsgAdapter(this, R.layout.msg_item, getMsgs());
         listView.setAdapter(adapter);
     }
 
     private List<Msg> getMsgs() {
-        msgs.add(new Msg("Hello guy.",Msg.TYPE_RECEIVED));
-        msgs.add(new Msg("Hello. Who is that?",Msg.TYPE_SEND));
-        msgs.add(new Msg("This is Tom. Nice talking to you.",Msg.TYPE_RECEIVED));
+        msgs.add(new Msg("Hello guy.", Msg.TYPE_RECEIVED));
+        msgs.add(new Msg("Hello. Who is that?", Msg.TYPE_SEND));
+        msgs.add(new Msg("This is Tom. Nice talking to you.", Msg.TYPE_RECEIVED));
         return msgs;
     }
 
@@ -57,16 +58,16 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.send:{
+        switch (view.getId()) {
+            case R.id.send: {
                 String content = inputText.getText().toString();
-                if (!TextUtils.isEmpty(content)){
-                    Msg msg = new Msg(content,Msg.TYPE_SEND);
+                if (!TextUtils.isEmpty(content)) {
+                    Msg msg = new Msg(content, Msg.TYPE_SEND);
                     msgs.add(msg);
                     adapter.notifyDataSetChanged();// 当有新消息时，刷新ListView中的显示
                     listView.setSelection(msgs.size());// 将ListView定位到最后一行
                     inputText.setText("");
-                }else {
+                } else {
                     ToastUtil.showMessage(ResUtil.getString(R.string.unempty));
                 }
                 break;
