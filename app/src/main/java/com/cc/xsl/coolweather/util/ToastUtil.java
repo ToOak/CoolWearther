@@ -17,7 +17,7 @@ import com.cc.xsl.coolweather.R;
  */
 public class ToastUtil {
 
-    private static Object synObj = new Object();
+    private static final Object synObj = new Object();
 
     private static volatile Toast toast = null;
 
@@ -41,6 +41,13 @@ public class ToastUtil {
         if (TextUtils.isEmpty(msg)) {
             return;
         }
+//        new Handler(Looper.getMainLooper()).post(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        });
+        // TODO 有什么意义 以上 了解一下？ 提示：子线程没有自己的Looper
         if (Looper.myLooper() == null) {
             Looper.prepare();
             if (toast != null) {

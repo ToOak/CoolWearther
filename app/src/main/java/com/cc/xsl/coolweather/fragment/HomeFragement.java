@@ -20,76 +20,76 @@ public class HomeFragement extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        LogUtil.d("HomeFragment onAttach");
+        LogUtil.e("HomeFragment onAttach");
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        LogUtil.d("HomeFragment used onAttach");
+        LogUtil.e("HomeFragment used onAttach");
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtil.d("HomeFragment onCreate");
+        LogUtil.e("HomeFragment onCreate");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        LogUtil.d("HomeFragment onCreateView");
+        LogUtil.e("HomeFragment onCreateView");
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        LogUtil.d("HomeFragment onActivityCreated");
+        LogUtil.e("HomeFragment onActivityCreated");
     }
 
 
     @Override
     public void onStart() {
         super.onStart();
-        LogUtil.d("HomeFragment onStart");
+        LogUtil.e("HomeFragment onStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        LogUtil.d("HomeFragment onResume");
+        LogUtil.e("HomeFragment onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        LogUtil.d("HomeFragment onPause");
+        LogUtil.e("HomeFragment onPause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        LogUtil.d("HomeFragment onStop");
+        LogUtil.e("HomeFragment onStop");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        LogUtil.d("HomeFragment onDestroyView");
+        LogUtil.e("HomeFragment onDestroyView");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtil.d("HomeFragment onDestroy");
+        LogUtil.e("HomeFragment onDestroy");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        LogUtil.d("HomeFragment onDetach");
+        LogUtil.e("HomeFragment onDetach");
     }
 
 }

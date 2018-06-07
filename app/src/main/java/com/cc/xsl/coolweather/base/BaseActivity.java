@@ -1,5 +1,6 @@
 package com.cc.xsl.coolweather.base;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +13,12 @@ import com.cc.xsl.coolweather.util.LogUtil;
 /**
  * Created by xushuailong on 2016/10/10.
  */
+@SuppressLint("Registered")
 public class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtil.d("now in " + getClass().getSimpleName().toString());
+        LogUtil.e("now in " + getClass().getSimpleName());
         BaseApplication.getApp().addActivity(this);
     }
 
