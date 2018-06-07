@@ -1,4 +1,4 @@
-package com.cc.xsl.coolweather.acticity;
+package com.cc.xsl.coolweather.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;

@@ -8,14 +8,20 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
+import com.cc.xsl.coolweather.activity.HomeDownActivity;
+import com.cc.xsl.coolweather.base.BaseActivity;
 import com.cc.xsl.coolweather.util.LogUtil;
 
 /**
  * Created by xushuailong on 2016/10/11.
  */
-public class HomeFragement extends Fragment {
+public class HomeFragement extends Fragment implements View.OnClickListener {
+
+    Button homeDownBtn;
 
     @Override
     public void onAttach(Context context) {
@@ -40,7 +46,17 @@ public class HomeFragement extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         LogUtil.e("HomeFragment onCreateView");
+        initview(view);
+        viewEvents();
         return view;
+    }
+
+    private void viewEvents() {
+        homeDownBtn.setOnClickListener(this);
+    }
+
+    private void initview(View view) {
+        homeDownBtn = (Button) view.findViewById(R.id.home_down_btn);
     }
 
     @Override
@@ -92,4 +108,12 @@ public class HomeFragement extends Fragment {
         LogUtil.e("HomeFragment onDetach");
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.home_down_btn: {
+                startActivity(HomeDownActivity.getAction(BaseApplication.getApp()));
+            }
+        }
+    }
 }
