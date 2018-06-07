@@ -6,6 +6,8 @@ import android.view.Window;
 
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
+import com.cc.xsl.coolweather.util.LogUtil;
+import com.cc.xsl.coolweather.util.MD5Util;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -23,6 +25,8 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+//                LogUtil.e(MD5Util.md5("Hello World!"));
+//                LogUtil.e(MD5Util.md5("a"));
                 gotoChoseArea();
             }
         }, 2000);
