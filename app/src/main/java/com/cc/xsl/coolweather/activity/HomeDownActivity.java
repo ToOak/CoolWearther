@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
 
 import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
@@ -14,8 +16,9 @@ import com.cc.xsl.coolweather.receiver.HomeKeyListener;
 import com.cc.xsl.coolweather.util.LogUtil;
 import com.cc.xsl.coolweather.util.ToastUtil;
 
-public class HomeDownActivity extends BaseActivity {
+public class HomeDownActivity extends BaseActivity implements View.OnClickListener {
     private HomeKeyListener homeKeyListener;
+    private Button goHomeBtn;
 
     public static Intent getAction(Context context) {
         Intent intent = new Intent(context, HomeDownActivity.class);
@@ -39,6 +42,9 @@ public class HomeDownActivity extends BaseActivity {
                 ToastUtil.showMessage("onRecentAppsPress...");
             }
         });
+
+        goHomeBtn = (Button) findViewById(R.id.go_home_btn);
+        goHomeBtn.setOnClickListener(this);
     }
 
     @Override
@@ -83,4 +89,15 @@ public class HomeDownActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.go_home_btn:{
+                // TODO 为虾米不生效 参照覆写的onPause方法
+                hideApp();
+//                BaseApplication.getApp().finishAll();
+                break;
+            }
+        }
+    }
 }
