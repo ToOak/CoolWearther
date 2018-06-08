@@ -113,6 +113,7 @@ public class HomeFragement extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.home_down_btn: {
                 startActivity(HomeDownActivity.getAction(BaseApplication.getApp()));
+                break;
             }
         }
     }

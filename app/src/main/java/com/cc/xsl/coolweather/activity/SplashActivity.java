@@ -1,13 +1,26 @@
 package com.cc.xsl.coolweather.activity;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Layout;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
+import com.cc.xsl.coolweather.service.FloatService;
+import com.cc.xsl.coolweather.util.Config;
 import com.cc.xsl.coolweather.util.LogUtil;
 import com.cc.xsl.coolweather.util.MD5Util;
+import com.cc.xsl.coolweather.util.SharedPreUtil;
+import com.cc.xsl.coolweather.util.ToastUtil;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -28,8 +41,14 @@ public class SplashActivity extends BaseActivity {
 //                LogUtil.e(MD5Util.md5("Hello World!"));
 //                LogUtil.e(MD5Util.md5("a"));
                 gotoChoseArea();
+                // TODO 这个问题有没有方法解决 当浮动窗口已在桌面不重复添加？
+//                if (!SharedPreUtil.getInstance().getBoolean(Config.IS_FLOAT_ALREADY)) {
+                    startService(new Intent(SplashActivity.this, FloatService.class));
+//                }
             }
         }, 2000);
+
+
     }
 
     private void gotoChoseArea() {
