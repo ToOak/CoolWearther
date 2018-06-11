@@ -26,7 +26,7 @@ public class HomeDownActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_down);
+
         homeKeyListener = new HomeKeyListener(context);
         homeKeyListener.setOnHomeKeyPressListener(new HomeKeyListener.OnHomeKeyPressListener() {
             @Override
@@ -46,13 +46,18 @@ public class HomeDownActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_home_down;
+    }
+
+    @Override
     protected void onPause() {
         LogUtil.e("onPause");
         // 按下 home键 & 返回键时 不起到作用
-        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        if (activityManager != null) {
-            activityManager.moveTaskToFront(getTaskId(), 0);
-        }
+//        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+//        if (activityManager != null) {
+//            activityManager.moveTaskToFront(getTaskId(), 0);
+//        }
         super.onPause();
     }
 

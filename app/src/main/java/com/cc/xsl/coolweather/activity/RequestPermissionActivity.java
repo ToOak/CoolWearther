@@ -36,6 +36,11 @@ public class RequestPermissionActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

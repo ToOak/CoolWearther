@@ -31,9 +31,13 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.talk_layout);
         initView();
         viewEvent();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.talk_layout;
     }
 
     private void initView() {

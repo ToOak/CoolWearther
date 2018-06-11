@@ -11,6 +11,9 @@ import com.cc.xsl.coolweather.MyApplication;
  * 对资源文件获取
  */
 public class ResUtil {
+    private ResUtil() {
+    }
+
     public static int getColor(int resId) {
         return MyApplication.getApp().getResources().getColor(resId);
     }

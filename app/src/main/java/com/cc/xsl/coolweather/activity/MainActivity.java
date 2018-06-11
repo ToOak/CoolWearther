@@ -40,10 +40,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
         initData();
         initView();
         viewEvent();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.main_layout;
+    }
+
+    @Override
+    protected boolean showCommentHeader() {
+        return false;
     }
 
     /**
@@ -149,7 +158,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 showOtherFragment();
                 break;
             }
-            case R.id.title_edit:{
+            case R.id.title_edit: {
                 Intent intent = new Intent(this, TalkActivity.class);
                 startActivity(intent);
             }

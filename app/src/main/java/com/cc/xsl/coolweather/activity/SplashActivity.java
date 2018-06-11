@@ -19,8 +19,6 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.splash_layout);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -36,6 +34,21 @@ public class SplashActivity extends BaseActivity {
         }, 2000);
 
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.splash_layout;
+    }
+
+    @Override
+    protected boolean showCommentHeader() {
+        return false;
+    }
+
+    @Override
+    protected int getRightBtnRes() {
+        return super.getRightBtnRes();
     }
 
     private void gotoChoseArea() {
