@@ -1,9 +1,8 @@
 package com.cc.xsl.coolweather.fragment;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cc.xsl.coolweather.R;
+import com.cc.xsl.coolweather.base.BaseFragment;
 import com.cc.xsl.coolweather.util.LogUtil;
 import com.cc.xsl.coolweather.util.ToastUtil;
 
@@ -29,39 +29,18 @@ import java.io.UnsupportedEncodingException;
  * Created by xushuailong on 2016/10/11.
  */
 
-public class OtherFragment extends Fragment implements View.OnClickListener {
+public class OtherFragment extends BaseFragment implements View.OnClickListener {
 
     private Button saveFilesBtn, saveCachesBtn, getFilesBtn, getCachesBtn, samePathBtn;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        LogUtil.e("OtherFragment onAttach");
-    }
+    protected void initViews(View view) {
+        saveCachesBtn = (Button) view.findViewById(R.id.save_caches_btn);
+        saveFilesBtn = (Button) view.findViewById(R.id.save_files_btn);
+        getCachesBtn = (Button) view.findViewById(R.id.get_caches_btn);
+        getFilesBtn = (Button) view.findViewById(R.id.get_files_btn);
+        samePathBtn = (Button) view.findViewById(R.id.same_path_btn);
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        LogUtil.e("OtherFragment used onAttach");
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        LogUtil.e("OtherFragment onCreate");
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_other, container, false);
-        LogUtil.e("OtherFragment onCreateView");
-        initViews(view);
-        viewEvents();
-        return view;
-    }
-
-    private void viewEvents() {
         saveCachesBtn.setOnClickListener(this);
         saveFilesBtn.setOnClickListener(this);
         getFilesBtn.setOnClickListener(this);
@@ -69,61 +48,9 @@ public class OtherFragment extends Fragment implements View.OnClickListener {
         samePathBtn.setOnClickListener(this);
     }
 
-    private void initViews(View view) {
-        saveCachesBtn = (Button) view.findViewById(R.id.save_caches_btn);
-        saveFilesBtn = (Button) view.findViewById(R.id.save_files_btn);
-        getCachesBtn = (Button) view.findViewById(R.id.get_caches_btn);
-        getFilesBtn = (Button) view.findViewById(R.id.get_files_btn);
-        samePathBtn = (Button) view.findViewById(R.id.same_path_btn);
-    }
-
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        LogUtil.e("OtherFragment onActivityCreated");
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        LogUtil.e("OtherFragment onStart");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        LogUtil.e("OtherFragment onResume");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        LogUtil.e("OtherFragment onPause");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        LogUtil.e("OtherFragment onStop");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        LogUtil.e("OtherFragment onDestroyView");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        LogUtil.e("OtherFragment onDestroy");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        LogUtil.e("OtherFragment onDetach");
+    protected int getLayoutId() {
+        return R.layout.fragment_other;
     }
 
     /**
@@ -210,6 +137,12 @@ public class OtherFragment extends Fragment implements View.OnClickListener {
             }
             case R.id.same_path_btn: {
                 AlertDialog builder = new AlertDialog.Builder(getActivity())
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
                         .setMessage(
                                 "Environment.getDataDirectory(): \n" + Environment.getDataDirectory().getAbsolutePath() + "\n" +
                                         "*********\n" +
