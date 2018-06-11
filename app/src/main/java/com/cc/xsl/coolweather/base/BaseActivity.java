@@ -41,35 +41,22 @@ public abstract class BaseActivity extends Activity {
         context = MyApplication.getContext();
         mInflater = LayoutInflater.from(this);
         setContentView(R.layout.activity_base_layout);
-        initviews();
+        initIntent();
         initLayout();
         initHearder();
+        initView();
+        loadData();
 
     }
 
-    private void initviews() {
-        backIv = (ImageView) findViewById(R.id.back_iv);
-        backTv = (TextView) findViewById(R.id.back_tv);
-        rightIv = (ImageView) findViewById(R.id.right_iv);
-        rightTv = (TextView) findViewById(R.id.right_tv);
-        headerView = findViewById(R.id.comment_header_view);
-        titleTv = (TextView) findViewById(R.id.title_tv);
-        backView = findViewById(R.id.back_view);
-        rightView = findViewById(R.id.right_view);
+    protected abstract void loadData();
 
-        backView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        rightView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRightBtnClick();
-            }
-        });
-    }
+    protected abstract void initView();
+
+    /**
+     * 处理页面之间的数据传递
+     */
+    protected abstract void initIntent();
 
     protected void onRightBtnClick() {
 
@@ -154,6 +141,28 @@ public abstract class BaseActivity extends Activity {
         ViewStub viewStub = (ViewStub) findViewById(R.id.content_vs);
         viewStub.setLayoutResource(getLayoutId());
         viewStub.inflate();
+
+        backIv = (ImageView) findViewById(R.id.back_iv);
+        backTv = (TextView) findViewById(R.id.back_tv);
+        rightIv = (ImageView) findViewById(R.id.right_iv);
+        rightTv = (TextView) findViewById(R.id.right_tv);
+        headerView = findViewById(R.id.comment_header_view);
+        titleTv = (TextView) findViewById(R.id.title_tv);
+        backView = findViewById(R.id.back_view);
+        rightView = findViewById(R.id.right_view);
+
+        backView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        rightView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRightBtnClick();
+            }
+        });
     }
 
     /**
@@ -178,9 +187,6 @@ public abstract class BaseActivity extends Activity {
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
     }
-
-
-
 
 
 }

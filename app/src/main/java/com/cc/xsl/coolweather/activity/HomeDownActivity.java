@@ -23,9 +23,14 @@ public class HomeDownActivity extends BaseActivity implements View.OnClickListen
         return intent;
     }
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void loadData() {
+
+    }
+
+    @Override
+    protected void initView() {
 
         homeKeyListener = new HomeKeyListener(context);
         homeKeyListener.setOnHomeKeyPressListener(new HomeKeyListener.OnHomeKeyPressListener() {
@@ -46,6 +51,11 @@ public class HomeDownActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
+    protected void initIntent() {
+
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.activity_home_down;
     }
@@ -54,10 +64,10 @@ public class HomeDownActivity extends BaseActivity implements View.OnClickListen
     protected void onPause() {
         LogUtil.e("onPause");
         // 按下 home键 & 返回键时 不起到作用
-//        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-//        if (activityManager != null) {
-//            activityManager.moveTaskToFront(getTaskId(), 0);
-//        }
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (activityManager != null) {
+            activityManager.moveTaskToFront(getTaskId(), 0);
+        }
         super.onPause();
     }
 
@@ -94,8 +104,8 @@ public class HomeDownActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.go_home_btn:{
+        switch (v.getId()) {
+            case R.id.go_home_btn: {
                 // TODO 为虾米不生效 参照覆写的onPause方法
                 hideApp();
 //                BaseApplication.getApp().finishAll();

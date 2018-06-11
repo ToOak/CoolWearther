@@ -14,5 +14,11 @@
             android:layout_height="wrap_content"
             android:text="home键的监听" />
 
+        <Button
+            android:id="@+id/text_fold_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="折叠文案" />
+
     </LinearLayout>
 </ScrollView>

@@ -21,8 +21,17 @@ public class RequestPermissionActivity extends BaseActivity {
     private final int REQUEST_CODE = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void loadData() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initIntent() {
         Intent intent = getIntent();
         if (intent != null) {
 //            Uri data = intent.getData();

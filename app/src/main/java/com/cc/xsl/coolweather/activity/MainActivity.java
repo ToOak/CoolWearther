@@ -38,11 +38,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initData();
-        initView();
-        viewEvent();
+    protected void loadData() {
+
     }
 
     @Override
@@ -55,25 +52,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         return false;
     }
 
-    /**
-     * 处理页面之间的数据传递
-     */
-    private void initData() {
-        Intent intent = getIntent();
-        LogUtil.e(intent.getStringExtra("param1") + "\t" + intent.getStringExtra("param2"));
-    }
-
-    @SuppressLint("CutPasteId")
-    private void initView() {
+    @Override
+    protected void initView() {
         titleBack = (TextView) findViewById(R.id.title).findViewById(R.id.title_back);
         titleContent = (TextView) findViewById(R.id.title).findViewById(R.id.title_content);
         titleEdit = (TextView) findViewById(R.id.title).findViewById(R.id.title_edit);
         homeBtn = (TextView) findViewById(R.id.btn_home);
         otherBtn = (TextView) findViewById(R.id.btn_other);
 //        showHomeFragment();
-    }
 
-    private void viewEvent() {
         titleContent.setText(ResUtil.getString(R.string.home));
         titleBack.setText(ResUtil.getString(R.string.exit));
         titleEdit.setText(ResUtil.getString(R.string.talking));
@@ -82,6 +69,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         titleBack.setOnClickListener(this);
         homeBtn.setOnClickListener(this);
         otherBtn.setOnClickListener(this);
+    }
+
+    @Override
+    protected void initIntent() {
+        Intent intent = getIntent();
+        LogUtil.e(intent.getStringExtra("param1") + "\t" + intent.getStringExtra("param2"));
     }
 
     // TODO actiongBar ?

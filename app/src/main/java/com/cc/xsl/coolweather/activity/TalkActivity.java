@@ -28,11 +28,21 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
     private MsgAdapter adapter;
     private List<Msg> msgs = new ArrayList<>();
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initView();
-        viewEvent();
+    protected void loadData() {
+
+    }
+
+    @Override
+    protected void initView() {
+        listView = (ListView) findViewById(R.id.msg_list_view);
+        inputText = (EditText) findViewById(R.id.input_text);
+        send = (Button) findViewById(R.id.send);
+        adapter = new MsgAdapter(this, R.layout.msg_item, getMsgs());
+        listView.setAdapter(adapter);
+
+        send.setOnClickListener(this);
     }
 
     @Override
@@ -40,12 +50,9 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
         return R.layout.talk_layout;
     }
 
-    private void initView() {
-        listView = (ListView) findViewById(R.id.msg_list_view);
-        inputText = (EditText) findViewById(R.id.input_text);
-        send = (Button) findViewById(R.id.send);
-        adapter = new MsgAdapter(this, R.layout.msg_item, getMsgs());
-        listView.setAdapter(adapter);
+    @Override
+    protected void initIntent() {
+
     }
 
     private List<Msg> getMsgs() {
@@ -53,10 +60,6 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
         msgs.add(new Msg("Hello. Who is that?", Msg.TYPE_SEND));
         msgs.add(new Msg("This is Tom. Nice talking to you.", Msg.TYPE_RECEIVED));
         return msgs;
-    }
-
-    private void viewEvent() {
-        send.setOnClickListener(this);
     }
 
     @Override

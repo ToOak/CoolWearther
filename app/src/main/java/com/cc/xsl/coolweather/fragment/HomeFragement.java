@@ -18,12 +18,14 @@ import com.cc.xsl.coolweather.util.LogUtil;
  */
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
-    Button homeDownBtn;
+    Button homeDownBtn, textFoldBtn;
 
     @Override
     protected void initViews(View view) {
         homeDownBtn = (Button) view.findViewById(R.id.home_down_btn);
         homeDownBtn.setOnClickListener(this);
+        textFoldBtn = (Button) view.findViewById(R.id.text_fold_btn);
+        textFoldBtn.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +39,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.home_down_btn: {
                 startActivity(HomeDownActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.text_fold_btn: {
+
                 break;
             }
         }
