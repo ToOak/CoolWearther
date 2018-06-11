@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.cc.xsl.coolweather.BaseApplication;
+import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
 import com.cc.xsl.coolweather.fragment.HomeFragement;
@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
             case R.id.exit: {
                 ToastUtil.showErrorMessage(null, ResUtil.getString(R.string.bye));
-                BaseApplication.getApp().finishAll();
+                MyApplication.getApp().finishAll();
                 break;
             }
             case R.id.talking: {
@@ -119,7 +119,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         ToastUtil.showErrorMessage(null, ResUtil.getString(R.string.bye));
-                        BaseApplication.getApp().finishAll();
+                        MyApplication.getApp().finishAll();
                     }
                 });
                 dialog.setNeutralButton(R.string.go_home, new DialogInterface.OnClickListener() {

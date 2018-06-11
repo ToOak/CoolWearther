@@ -10,10 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.cc.xsl.coolweather.BaseApplication;
+import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
-import com.cc.xsl.coolweather.base.BaseActivity;
 import com.cc.xsl.coolweather.util.LogUtil;
 
 /**
@@ -112,7 +111,7 @@ public class HomeFragement extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.home_down_btn: {
-                startActivity(HomeDownActivity.getAction(BaseApplication.getApp()));
+                startActivity(HomeDownActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }

@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.util.LogUtil;
 import com.cc.xsl.coolweather.util.ToastUtil;

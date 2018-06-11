@@ -14,18 +14,16 @@ import android.support.v4.app.ActivityCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cc.xsl.coolweather.BaseApplication;
+import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.receiver.FloatPermissionReceiver;
 import com.cc.xsl.coolweather.util.Config;
 import com.cc.xsl.coolweather.util.LogUtil;
-import com.cc.xsl.coolweather.util.ScreenUtil;
 import com.cc.xsl.coolweather.util.SharedPreUtil;
 
 public class FloatService extends Service {
@@ -63,7 +61,7 @@ public class FloatService extends Service {
                  */
                 Intent i = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                BaseApplication.getApp().startActivity(i);
+                MyApplication.getApp().startActivity(i);
             } else {
                 showFloat();
             }

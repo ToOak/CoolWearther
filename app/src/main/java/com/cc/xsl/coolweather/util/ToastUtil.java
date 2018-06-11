@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cc.xsl.coolweather.BaseApplication;
+import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
 
 /**
@@ -75,11 +75,11 @@ public class ToastUtil {
     }
 
     public static void showMessage(final int msgId) {
-        showMessage(BaseApplication.getApp(), msgId, Toast.LENGTH_SHORT);
+        showMessage(MyApplication.getApp(), msgId, Toast.LENGTH_SHORT);
     }
 
     public static void showMessage(String msg) {
-        showMessage(BaseApplication.getApp(), msg, Toast.LENGTH_SHORT);
+        showMessage(MyApplication.getApp(), msg, Toast.LENGTH_SHORT);
     }
 
     private static void show() {
@@ -94,7 +94,7 @@ public class ToastUtil {
     }
 
     public static void showErrorMessage(String title, String content) {
-        View view = LayoutInflater.from(BaseApplication.getApp()).inflate(R.layout.toast_layout, null);
+        View view = LayoutInflater.from(MyApplication.getApp()).inflate(R.layout.toast_layout, null);
 
         if (!TextUtils.isEmpty(title)) {
             ((TextView) view.findViewById(R.id.toast_title)).setText(title);
@@ -108,7 +108,7 @@ public class ToastUtil {
             if (toast != null) {
                 toast.cancel();
             }
-            toast = new Toast(BaseApplication.getApp());
+            toast = new Toast(MyApplication.getApp());
             toast.setView(view);
             show();
             Looper.loop();
@@ -116,7 +116,7 @@ public class ToastUtil {
             if (toast != null) {
                 toast.cancel();
             }
-            toast = new Toast(BaseApplication.getApp());
+            toast = new Toast(MyApplication.getApp());
             toast.setView(view);
             show();
         }

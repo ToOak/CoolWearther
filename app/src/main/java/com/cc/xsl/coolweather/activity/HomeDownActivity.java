@@ -4,12 +4,10 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 
-import com.cc.xsl.coolweather.BaseApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
 import com.cc.xsl.coolweather.receiver.HomeKeyListener;

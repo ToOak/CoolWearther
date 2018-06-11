@@ -5,9 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-
-import com.cc.xsl.coolweather.BaseApplication;
+import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.util.LogUtil;
 
 
@@ -22,14 +20,14 @@ public class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LogUtil.e("now in " + getClass().getSimpleName());
-        BaseApplication.getApp().addActivity(this);
-        context = BaseApplication.getApp();
+        MyApplication.getApp().addActivity(this);
+        context = MyApplication.getApp();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BaseApplication.getApp().removeActivity(this);
+        MyApplication.getApp().removeActivity(this);
     }
 
     /**

@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * Created by xushuailong on 2016/10/10.
  */
-public class BaseApplication extends Application {
-    private static BaseApplication app;
+public class MyApplication extends Application {
+    private static MyApplication app;
     private static Context context;
     private List<Activity> activities = new ArrayList<>();
 
@@ -27,7 +27,7 @@ public class BaseApplication extends Application {
         return context;
     }
 
-    public static BaseApplication getApp() {
+    public static MyApplication getApp() {
         return app;
     }
 

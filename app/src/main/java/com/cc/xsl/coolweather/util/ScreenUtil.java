@@ -1,15 +1,12 @@
 package com.cc.xsl.coolweather.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.cc.xsl.coolweather.BaseApplication;
-
-import static android.content.Context.INPUT_METHOD_SERVICE;
+import com.cc.xsl.coolweather.MyApplication;
 
 public class ScreenUtil {
     private static ScreenUtil screenUtil = null;
@@ -36,7 +33,7 @@ public class ScreenUtil {
 
     public int getScreenWidth2() {
         DisplayMetrics dm = new DisplayMetrics();
-        BaseApplication.getApp().getTaskTopActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        MyApplication.getApp().getTaskTopActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
     }
 

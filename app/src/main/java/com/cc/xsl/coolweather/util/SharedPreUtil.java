@@ -3,7 +3,7 @@ package com.cc.xsl.coolweather.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.cc.xsl.coolweather.BaseApplication;
+import com.cc.xsl.coolweather.MyApplication;
 
 public class SharedPreUtil {
     private final String preferenceName = "ccPreferences";
@@ -11,7 +11,7 @@ public class SharedPreUtil {
     private SharedPreferences preferences;
 
     private SharedPreUtil() {
-        preferences = BaseApplication.getApp().getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        preferences = MyApplication.getApp().getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
     }
 
     public SharedPreUtil put(String key, String value) {

@@ -1,10 +1,8 @@
 package com.cc.xsl.coolweather.util;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
 
-import com.cc.xsl.coolweather.BaseApplication;
 
 /**
  * Created by xushuailong on 2016/10/10.
