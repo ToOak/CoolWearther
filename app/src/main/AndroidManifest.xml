@@ -31,6 +31,7 @@
             android:theme="@style/Theme.AppCompat.Light" />
         <activity android:name=".activity.TalkActivity" />
         <activity android:name=".activity.HomeDownActivity" />
+        <activity android:name=".activity.TextFoldActivity" />
         <activity android:name=".activity.RequestPermissionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -73,9 +74,9 @@
                 <!--应用进程重启，当我们点击强制停止后收到此消息，常理你会认为应该在应用再次启动的时候收到-->
                 <action android:name="android.intent.action.PACKAGE_RESTARTED" />
                 <!--Android电量广播状态有3种，电量低，电量充满，电量发生改变。-->
-                <action android:name="android.intent.action.BATTERY_LOW"/>
-                <action android:name="android.intent.action.BATTERY_OKAY"/>
-                <action android:name="android.intent.action.BATTERY_CHANGED"/>
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
