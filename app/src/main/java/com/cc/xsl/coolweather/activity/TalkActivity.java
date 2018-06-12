@@ -1,9 +1,8 @@
-package com.cc.xsl.coolweather.acticity;
+package com.cc.xsl.coolweather.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -29,20 +28,31 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
     private MsgAdapter adapter;
     private List<Msg> msgs = new ArrayList<>();
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.talk_layout);
-        initView();
-        viewEvent();
+    protected void loadData() {
+
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         listView = (ListView) findViewById(R.id.msg_list_view);
         inputText = (EditText) findViewById(R.id.input_text);
         send = (Button) findViewById(R.id.send);
         adapter = new MsgAdapter(this, R.layout.msg_item, getMsgs());
         listView.setAdapter(adapter);
+
+        send.setOnClickListener(this);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.talk_layout;
+    }
+
+    @Override
+    protected void initIntent() {
+
     }
 
     private List<Msg> getMsgs() {
@@ -50,10 +60,6 @@ public class TalkActivity extends BaseActivity implements View.OnClickListener {
         msgs.add(new Msg("Hello. Who is that?", Msg.TYPE_SEND));
         msgs.add(new Msg("This is Tom. Nice talking to you.", Msg.TYPE_RECEIVED));
         return msgs;
-    }
-
-    private void viewEvent() {
-        send.setOnClickListener(this);
     }
 
     @Override

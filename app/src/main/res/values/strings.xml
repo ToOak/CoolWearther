@@ -13,4 +13,11 @@
     <string name="cancel">取消</string>
     <string name="talking">聊天室</string>
     <string name="unempty">内容不可为空</string>
+    <string name="go_home">回到桌面</string>
+    <string name="permission_diy">手动授权</string>
+    <string name="more">更多</string>
+    <string name="less">收起</string>
+
+    <string name="action_scheme">cool</string>
+    <string name="action_host">cc.xsl</string>
 </resources>

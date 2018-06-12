@@ -1,6 +1,5 @@
-package com.cc.xsl.coolweather.acticity;
+package com.cc.xsl.coolweather.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,6 +7,7 @@ import android.view.Window;
 
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
+import com.cc.xsl.coolweather.service.FloatService;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -16,18 +16,46 @@ import java.util.Date;
  * Created by xushuailong on 2016/10/10.
  */
 public class SplashActivity extends BaseActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.splash_layout);
 
+    @Override
+    protected void loadData() {
+
+    }
+
+    @Override
+    protected void initView() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+//                LogUtil.e(MD5Util.md5("Hello World!"));
+//                LogUtil.e(MD5Util.md5("a"));
                 gotoChoseArea();
+                // TODO 这个问题有没有方法解决 当浮动窗口已在桌面不重复添加？
+//                if (!SharedPreUtil.getInstance().getBoolean(Config.IS_FLOAT_ALREADY)) {
+                startService(new Intent(SplashActivity.this, FloatService.class));
+//                }
             }
         }, 2000);
+    }
+
+    @Override
+    protected void initIntent() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.splash_layout;
+    }
+
+    @Override
+    protected boolean showCommentHeader() {
+        return false;
+    }
+
+    @Override
+    protected int getRightBtnRes() {
+        return super.getRightBtnRes();
     }
 
     private void gotoChoseArea() {

@@ -8,4 +8,10 @@
     <!-- 纯白色 -->
     <color name="white">#ffffff</color>
     <color name="talk_bg">#d8e0e8</color>
+    <color name="green_light">#7ED321</color>
+    <color name="green_dark">#006400</color>
+    <color name="header_red_bg">#FFDE4138</color>
+    <color name="black">#000</color>
+    <color name="text_normal">#333</color>
+    <color name="text_hind">#666</color>
 </resources>

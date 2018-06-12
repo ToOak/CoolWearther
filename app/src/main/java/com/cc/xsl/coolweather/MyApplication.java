@@ -1,5 +1,6 @@
 package com.cc.xsl.coolweather;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -11,9 +12,10 @@ import java.util.List;
 /**
  * Created by xushuailong on 2016/10/10.
  */
-public class BaseApplication extends Application {
-    public boolean isDebug = true;
-    private static BaseApplication app;
+public class MyApplication extends Application {
+    @SuppressLint("StaticFieldLeak")
+    private static MyApplication app;
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
     private List<Activity> activities = new ArrayList<>();
 
@@ -28,7 +30,7 @@ public class BaseApplication extends Application {
         return context;
     }
 
-    public static BaseApplication getApp() {
+    public static MyApplication getApp() {
         return app;
     }
 
@@ -48,5 +50,12 @@ public class BaseApplication extends Application {
                 activity.finish();
             }
         }
+    }
+
+    public Activity getTaskTopActivity() {
+        if (activities != null && activities.size() > 0) {
+            return activities.get(activities.size() - 1);
+        }
+        return null;
     }
 }

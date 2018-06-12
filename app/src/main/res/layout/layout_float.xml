@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/float_content_ll"
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_red_light"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/go_home_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="回到桌面" />
+    </LinearLayout>
+        <!--android:layout_below="@id/float_content_ll"-->
+    <ImageView
+        android:id="@+id/float_controller_iv"
+        android:layout_width="30dp"
+        android:layout_gravity="center"
+        android:layout_height="20dp"
+        android:src="@drawable/float_controller" />
+</LinearLayout>

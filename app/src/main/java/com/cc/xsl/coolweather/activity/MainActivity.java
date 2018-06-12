@@ -1,4 +1,4 @@
-package com.cc.xsl.coolweather.acticity;
+package com.cc.xsl.coolweather.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.cc.xsl.coolweather.BaseApplication;
+import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
 import com.cc.xsl.coolweather.fragment.HomeFragement;
@@ -38,33 +38,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
-        initData();
-        initView();
-        viewEvent();
+    protected void loadData() {
+
     }
 
-    /**
-     * 处理页面之间的数据传递
-     */
-    private void initData() {
-        Intent intent = getIntent();
-        LogUtil.e(intent.getStringExtra("param1") + "\t" + intent.getStringExtra("param2"));
+    @Override
+    protected int getLayoutId() {
+        return R.layout.main_layout;
     }
 
-    @SuppressLint("CutPasteId")
-    private void initView() {
+    @Override
+    protected boolean showCommentHeader() {
+        return false;
+    }
+
+    @Override
+    protected void initView() {
         titleBack = (TextView) findViewById(R.id.title).findViewById(R.id.title_back);
         titleContent = (TextView) findViewById(R.id.title).findViewById(R.id.title_content);
         titleEdit = (TextView) findViewById(R.id.title).findViewById(R.id.title_edit);
         homeBtn = (TextView) findViewById(R.id.btn_home);
         otherBtn = (TextView) findViewById(R.id.btn_other);
 //        showHomeFragment();
-    }
 
-    private void viewEvent() {
         titleContent.setText(ResUtil.getString(R.string.home));
         titleBack.setText(ResUtil.getString(R.string.exit));
         titleEdit.setText(ResUtil.getString(R.string.talking));
@@ -73,6 +69,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         titleBack.setOnClickListener(this);
         homeBtn.setOnClickListener(this);
         otherBtn.setOnClickListener(this);
+    }
+
+    @Override
+    protected void initIntent() {
+        Intent intent = getIntent();
+        LogUtil.e(intent.getStringExtra("param1") + "\t" + intent.getStringExtra("param2"));
     }
 
     // TODO actiongBar ?
@@ -91,7 +93,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
             case R.id.exit: {
                 ToastUtil.showErrorMessage(null, ResUtil.getString(R.string.bye));
-                BaseApplication.getApp().finishAll();
+                MyApplication.getApp().finishAll();
                 break;
             }
             case R.id.talking: {
@@ -119,7 +121,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         ToastUtil.showErrorMessage(null, ResUtil.getString(R.string.bye));
-                        BaseApplication.getApp().finishAll();
+                        MyApplication.getApp().finishAll();
+                    }
+                });
+                dialog.setNeutralButton(R.string.go_home, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        hideApp();
                     }
                 });
                 dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -143,7 +151,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 showOtherFragment();
                 break;
             }
-            case R.id.title_edit:{
+            case R.id.title_edit: {
                 Intent intent = new Intent(this, TalkActivity.class);
                 startActivity(intent);
             }

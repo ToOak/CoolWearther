@@ -3,23 +3,84 @@
     package="com.cc.xsl.coolweather">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- TODO 以下权限为虾米找不到 ？？？-->
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
     <application
-        android:name=".BaseApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".acticity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".acticity.MainActivity"></activity>
-        <activity android:name=".acticity.TalkActivity"></activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name=".activity.TalkActivity" />
+        <activity android:name=".activity.HomeDownActivity" />
+        <activity android:name=".activity.TextFoldActivity" />
+        <activity android:name=".activity.RequestPermissionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/action_host"
+                    android:path="/request_permission"
+                    android:scheme="@string/action_scheme" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.FloatService" />
+
+        <receiver android:name=".receiver.FloatPermissionReceiver">
+            <intent-filter>
+                <action android:name="android.receiver.cc.xsl.floatpermissionreceiver" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.SystemReceiver">
+            <intent-filter>
+                <!--系统在开机加载完毕后发送的-->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!--网络变化的广播 targetSdkVersion 升级到 24 后，发现静态注册广播的方式要被取消了-->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <!--解锁时发出的广播-->
+                <action android:name="android.intent.action.USER_PRESENT" />
+
+                <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <!--sd卡已挂载的广播-->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <!--sd卡已卸载的广播-->
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <!--插拔电源广播-->
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <!--应用进程重启，当我们点击强制停止后收到此消息，常理你会认为应该在应用再次启动的时候收到-->
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+                <!--Android电量广播状态有3种，电量低，电量充满，电量发生改变。-->
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
