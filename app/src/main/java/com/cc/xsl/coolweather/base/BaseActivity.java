@@ -33,7 +33,7 @@ public abstract class BaseActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LogUtil.e("this is " + getClass().getSimpleName());
+        LogUtil.e("this activity is " + getClass().getSimpleName());
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         MyApplication.getApp().addActivity(this);
@@ -104,7 +104,7 @@ public abstract class BaseActivity extends Activity {
     }
 
     /**
-     * @return
+     * @return 标题风格
      */
     protected HeaderStyle getHeaderStyle() {
         return HeaderStyle.RED;
@@ -122,7 +122,7 @@ public abstract class BaseActivity extends Activity {
     /**
      * title
      *
-     * @return
+     * @return 标题
      */
     protected String getUiTitle() {
         return this.getClass().getSimpleName();
@@ -131,7 +131,7 @@ public abstract class BaseActivity extends Activity {
     /**
      * 是否显示公共title
      *
-     * @return
+     * @return 是否显示公共标题
      */
     protected boolean showCommentHeader() {
         return true;
@@ -168,7 +168,7 @@ public abstract class BaseActivity extends Activity {
     /**
      * activity 公共布局
      *
-     * @return
+     * @return 当前activity的布局
      */
     protected abstract int getLayoutId();
 
