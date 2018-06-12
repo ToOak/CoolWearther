@@ -8,11 +8,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.widget.Toast;
 
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.base.BaseActivity;
 import com.cc.xsl.coolweather.receiver.FloatPermissionReceiver;
 import com.cc.xsl.coolweather.util.LogUtil;
+import com.cc.xsl.coolweather.util.ToastUtil;
 
 import java.util.Arrays;
 
@@ -54,15 +56,17 @@ public class RequestPermissionActivity extends BaseActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         LogUtil.e("requestCode: " + requestCode + "\tpermissions: " + Arrays.deepToString(permissions)
                 + "\tgrantResult: " + Arrays.toString(grantResults));
         LogUtil.e("permissionArrays: " + Arrays.deepToString(permissionArray));
+
         if (requestCode == REQUEST_CODE) {
             if (grantResults.length > 0) {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // 授权成功
-
-
+                    LogUtil.e("授权成功！");
+                    ToastUtil.showMessage(getString(R.string.permission_success));
                 } else if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
                     // 点击拒绝授权
 

@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">CoolWeather</string>
-    <string name="splash">欢迎...</string>
+    <string name="splash">欢迎…</string>
     <string name="exit">退出</string>
-    <string name="about">关于...</string>
-    <string name="error">啊呀,出错了...</string>
+    <string name="about">关于…</string>
+    <string name="error">啊呀,出错了…</string>
     <string name="warn">==标题党==</string>
     <string name="bye">( ^_^ )/~~拜拜</string>
     <string name="login">登录</string>
@@ -17,6 +17,7 @@
     <string name="permission_diy">手动授权</string>
     <string name="more">更多</string>
     <string name="less">收起</string>
+    <string name="permission_success">授权成功！</string>
 
     <string name="action_scheme">cool</string>
     <string name="action_host">cc.xsl</string>
