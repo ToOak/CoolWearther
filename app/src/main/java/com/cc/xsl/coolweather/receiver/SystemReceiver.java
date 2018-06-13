@@ -20,7 +20,7 @@ public class SystemReceiver extends BroadcastReceiver {
             }
         }
 //        if (!SharedPreUtil.getInstance().getBoolean(Config.IS_FLOAT_ALREADY)) {
-            context.startService(new Intent(context, FloatService.class));
+//            context.startService(new Intent(context, FloatService.class));
 //        }
     }
 }

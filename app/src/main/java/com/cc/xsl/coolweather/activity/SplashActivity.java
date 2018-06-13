@@ -32,7 +32,7 @@ public class SplashActivity extends BaseActivity {
                 gotoChoseArea();
                 // TODO 这个问题有没有方法解决 当浮动窗口已在桌面不重复添加？
 //                if (!SharedPreUtil.getInstance().getBoolean(Config.IS_FLOAT_ALREADY)) {
-                startService(new Intent(SplashActivity.this, FloatService.class));
+//                startService(new Intent(SplashActivity.this, FloatService.class));
 //                }
             }
         }, 2000);
