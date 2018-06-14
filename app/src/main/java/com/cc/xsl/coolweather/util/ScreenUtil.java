@@ -74,7 +74,7 @@ public class ScreenUtil {
         }
     }
 
-    public void hideInputMethod(EditText editText){
+    public void hideInputMethod(EditText editText) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context
                 .INPUT_METHOD_SERVICE);
         if (imm.isActive()) {

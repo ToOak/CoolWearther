@@ -10,7 +10,7 @@ import com.cc.xsl.coolweather.util.ToastUtil;
 public class FloatPermissionReceiver extends BroadcastReceiver {
 
     public static final String ACTION = "android.receiver.cc.xsl.floatpermissionreceiver";
-    public static final String PERMISSION_ARRAY= "permission array";
+    public static final String PERMISSION_ARRAY = "permission array";
     private String[] permissions = null;
 
     @Override
@@ -23,7 +23,7 @@ public class FloatPermissionReceiver extends BroadcastReceiver {
             i.putExtra(PERMISSION_ARRAY, permissions);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
-        }else {
+        } else {
             ToastUtil.showErrorMessage();
         }
     }

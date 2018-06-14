@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <include layout="@layout/layout_comment_title" />
+
     <ViewStub
         android:id="@+id/content_vs"
         android:layout_width="match_parent"

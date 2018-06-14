@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/talking"
-        app:showAsAction="always"
-        android:title="@string/talking" />
+        android:title="@string/talking"
+        app:showAsAction="always" />
     <item
         android:id="@+id/about"
-        app:showAsAction="ifRoom"
-        android:title="@string/about" />
+        android:title="@string/about"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/exit"
-        app:showAsAction="ifRoom"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/exit" />
+        android:title="@string/exit"
+        app:showAsAction="ifRoom" />
 </menu>

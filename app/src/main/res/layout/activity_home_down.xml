@@ -3,9 +3,10 @@
     app:layout_width="match_parent"
     app:layout_height="match_parent"
     app:orientation="vertical">
+
     <Button
         app:id="@+id/go_home_btn"
-        app:text="@string/go_home"
         app:layout_width="match_parent"
-        app:layout_height="wrap_content" />
+        app:layout_height="wrap_content"
+        app:text="@string/go_home" />
 </LinearLayout>

@@ -34,9 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="读取caches" />
+
     <Button
+        android:id="@+id/same_path_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/same_path_btn"
-        android:text="一些路径"/>
+        android:text="一些路径" />
 </LinearLayout>
