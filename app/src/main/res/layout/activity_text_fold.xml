@@ -60,4 +60,41 @@
         android:contentDescription="@string/app_name"
         android:visibility="gone" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/more_btn"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                android:text="Textview多行时，最后结尾处显示省略号" />
+
+            <TextView
+                android:id="@+id/original_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="0.7"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/result_tv"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="0.7"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
