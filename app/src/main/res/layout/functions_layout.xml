@@ -26,5 +26,11 @@
             android:layout_height="wrap_content"
             android:text="layout" />
 
+        <Button
+            android:id="@+id/widget_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="widget" />
+
     </LinearLayout>
 </ScrollView>

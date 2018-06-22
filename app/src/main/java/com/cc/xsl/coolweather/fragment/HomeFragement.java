@@ -12,6 +12,7 @@ import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
 import com.cc.xsl.coolweather.activity.TextFoldActivity;
+import com.cc.xsl.coolweather.activity.WidgetActivity;
 import com.cc.xsl.coolweather.base.BaseFragment;
 import com.cc.xsl.coolweather.util.LogUtil;
 
@@ -20,7 +21,7 @@ import com.cc.xsl.coolweather.util.LogUtil;
  */
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
-    Button homeDownBtn, textFoldBtn, layoutBtn;
+    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn;
 
     @Override
     protected void initViews(View view) {
@@ -30,6 +31,8 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         textFoldBtn.setOnClickListener(this);
         layoutBtn = (Button) view.findViewById(R.id.layout_btn);
         layoutBtn.setOnClickListener(this);
+        widgetBtn = (Button) view.findViewById(R.id.widget_btn);
+        widgetBtn.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +56,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.layout_btn: {
                 startActivity(LayoutActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.widget_btn: {
+                startActivity(WidgetActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }
