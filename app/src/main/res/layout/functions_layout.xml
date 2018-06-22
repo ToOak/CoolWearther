@@ -20,5 +20,11 @@
             android:layout_height="wrap_content"
             android:text="折叠文案" />
 
+        <Button
+            android:id="@+id/layout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="layout" />
+
     </LinearLayout>
 </ScrollView>

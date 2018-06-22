@@ -81,6 +81,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        <activity android:name=".activity.LayoutActivity"/>
+        <activity android:name=".activity.layout.AbsoluteActivity"/>
+        <activity android:name=".activity.layout.FrameActivity"/>
+        <activity android:name=".activity.layout.GridActivity"/>
+        <activity android:name=".activity.layout.LinearActivity"/>
+        <activity android:name=".activity.layout.RelativeActivity"/>
+        <activity android:name=".activity.layout.TableActivity"/>
     </application>
 
 </manifest>
