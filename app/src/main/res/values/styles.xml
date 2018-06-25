@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--另一种主题样式-->
+    <style name="WidgetTheme" parent="android:Theme.Holo.Light">
+
+    </style>
+
 </resources>

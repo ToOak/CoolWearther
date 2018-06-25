@@ -24,12 +24,13 @@ public class WidgetActivity extends BaseActivity {
     private CheckBox sportsCheckBox;
     private CheckBox readCheckBox;
     private CheckBox gameCheckBox;
-    private static final String[] ADDRESS = {"shanghai", "wuxi", "beijing",
-            "anhui", "hebei", "henan", "xuzhou", "yizhou"};
+//    private static final String[] ADDRESS = {"shanghai", "wuxi", "beijing",
+//            "anhui", "hebei", "henan", "xuzhou", "yizhou"};
+    private static final String[] ADDRESS = {"jiaxian","baliying","wangji","zhuyuanzhai",
+            "huangdao","cipa","zhongtou","yezhugou","baimiao","yulintou","fengzhuang","wolou","guangtian"};
 
     public static Intent getAction(Context context) {
-        Intent intent = new Intent(context, WidgetActivity.class);
-        return intent;
+        return new Intent(context, WidgetActivity.class);
     }
 
     @Override
