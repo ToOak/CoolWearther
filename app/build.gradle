@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+//    编译版本不能小于目标版本
     compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
