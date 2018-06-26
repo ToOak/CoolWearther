@@ -14,4 +14,10 @@
     <color name="black">#000</color>
     <color name="text_normal">#333</color>
     <color name="text_hind">#666</color>
+    <color name="viewfinder_mask">#bb25353e</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_frame">#bb466e87</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="viewfinder_corner">#ffffffff</color>
 </resources>

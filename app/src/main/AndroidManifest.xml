@@ -90,6 +90,7 @@
         <activity android:name=".activity.layout.TableActivity"/>
         <activity android:name=".activity.WidgetActivity"
             android:theme="@style/WidgetTheme"/>
+        <activity android:name=".activity.CaptureActivity"/>
     </application>
 
 </manifest>

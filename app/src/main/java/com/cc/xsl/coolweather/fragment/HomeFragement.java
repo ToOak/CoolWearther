@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
+import com.cc.xsl.coolweather.activity.CaptureActivity;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
 import com.cc.xsl.coolweather.activity.TextFoldActivity;
@@ -21,18 +22,20 @@ import com.cc.xsl.coolweather.util.LogUtil;
  */
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
-    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn;
+    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, captureBtn;
 
     @Override
     protected void initViews(View view) {
-        homeDownBtn = (Button) view.findViewById(R.id.home_down_btn);
+        homeDownBtn = view.findViewById(R.id.home_down_btn);
         homeDownBtn.setOnClickListener(this);
-        textFoldBtn = (Button) view.findViewById(R.id.text_fold_btn);
+        textFoldBtn = view.findViewById(R.id.text_fold_btn);
         textFoldBtn.setOnClickListener(this);
-        layoutBtn = (Button) view.findViewById(R.id.layout_btn);
+        layoutBtn = view.findViewById(R.id.layout_btn);
         layoutBtn.setOnClickListener(this);
-        widgetBtn = (Button) view.findViewById(R.id.widget_btn);
+        widgetBtn = view.findViewById(R.id.widget_btn);
         widgetBtn.setOnClickListener(this);
+        captureBtn = view.findViewById(R.id.capture_btn);
+        captureBtn.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +63,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.widget_btn: {
                 startActivity(WidgetActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.capture_btn: {
+                startActivity(CaptureActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }
