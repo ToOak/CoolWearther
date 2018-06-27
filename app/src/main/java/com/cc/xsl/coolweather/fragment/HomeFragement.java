@@ -1,28 +1,22 @@
 package com.cc.xsl.coolweather.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
-import com.cc.xsl.coolweather.activity.CaptureActivity;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
 import com.cc.xsl.coolweather.activity.TextFoldActivity;
 import com.cc.xsl.coolweather.activity.WidgetActivity;
 import com.cc.xsl.coolweather.base.BaseFragment;
-import com.cc.xsl.coolweather.util.LogUtil;
 
 /**
  * Created by xushuailong on 2016/10/11.
  */
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
-    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, captureBtn;
+    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn;
 
     @Override
     protected void initViews(View view) {
@@ -34,8 +28,6 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         layoutBtn.setOnClickListener(this);
         widgetBtn = view.findViewById(R.id.widget_btn);
         widgetBtn.setOnClickListener(this);
-        captureBtn = view.findViewById(R.id.capture_btn);
-        captureBtn.setOnClickListener(this);
     }
 
     @Override
@@ -63,10 +55,6 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.widget_btn: {
                 startActivity(WidgetActivity.getAction(MyApplication.getApp()));
-                break;
-            }
-            case R.id.capture_btn: {
-                startActivity(CaptureActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }
