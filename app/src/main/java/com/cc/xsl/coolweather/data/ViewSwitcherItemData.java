@@ -7,7 +7,8 @@ public class ViewSwitcherItemData {
     @DrawableRes
     private int icon;
 
-    public ViewSwitcherItemData(String name, int icon) {
+
+    public ViewSwitcherItemData(String name,@DrawableRes int icon) {
         this.name = name;
         this.icon = icon;
     }
@@ -16,7 +17,7 @@ public class ViewSwitcherItemData {
         return icon;
     }
 
-    public void setIcon(int icon) {
+    public void setIcon(@DrawableRes int icon) {
         this.icon = icon;
     }
 

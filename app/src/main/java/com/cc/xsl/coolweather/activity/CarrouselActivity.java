@@ -144,7 +144,7 @@ public class CarrouselActivity extends BaseActivity implements View.OnClickListe
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
+            ViewHolder holder;
             if (convertView == null) {
                 convertView = LayoutInflater.from(CarrouselActivity.this).inflate(
                         R.layout.item_slid_gridview, null
