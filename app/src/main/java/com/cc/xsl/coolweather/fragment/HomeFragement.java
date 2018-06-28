@@ -5,6 +5,7 @@ import android.widget.Button;
 
 import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
+import com.cc.xsl.coolweather.activity.CarrouselActivity;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
 import com.cc.xsl.coolweather.activity.TextFoldActivity;
@@ -16,7 +17,7 @@ import com.cc.xsl.coolweather.base.BaseFragment;
  */
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
-    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn;
+    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, carrouselBtn;
 
     @Override
     protected void initViews(View view) {
@@ -28,6 +29,8 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         layoutBtn.setOnClickListener(this);
         widgetBtn = view.findViewById(R.id.widget_btn);
         widgetBtn.setOnClickListener(this);
+        carrouselBtn = view.findViewById(R.id.carrousel_btn);
+        carrouselBtn.setOnClickListener(this);
     }
 
     @Override
@@ -55,6 +58,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.widget_btn: {
                 startActivity(WidgetActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.carrousel_btn: {
+                startActivity(CarrouselActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }
