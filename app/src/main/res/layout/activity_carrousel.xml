@@ -3,10 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoStart="true"
+        android:flipInterval="@integer/notice_interval"
+        android:inAnimation="@anim/anim_top_in"
+        android:outAnimation="@anim/anim_bottom_out" />
+
     <ViewSwitcher
         android:id="@+id/view_switcher"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_flipper"
+        android:background="@color/talk_bg" />
 
     <Button
         android:id="@+id/pre_btn"

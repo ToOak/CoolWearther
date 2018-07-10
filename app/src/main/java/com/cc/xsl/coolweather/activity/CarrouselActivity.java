@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher;
 
 import com.cc.xsl.coolweather.MyApplication;
@@ -27,9 +29,11 @@ public class CarrouselActivity extends BaseActivity implements View.OnClickListe
     private int screenCount;
 
     private ViewSwitcher viewSwitcher;
+    private ViewFlipper viewFlipper;
     private Button preBtn, nextBtn;
     private List<ViewSwitcherItemData> itemData = new ArrayList<>();
     private ViewSwitcherBaseAdapter viewSwitcherBaseAdapter;
+    private int noticeCount = 0;
 
     public static Intent getAction(Context context) {
         return new Intent(context, CarrouselActivity.class);
@@ -42,6 +46,7 @@ public class CarrouselActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initView() {
+        initViewFlipper();
         preBtn = findViewById(R.id.pre_btn);
         nextBtn = findViewById(R.id.next_btn);
         viewSwitcher = findViewById(R.id.view_switcher);
@@ -72,6 +77,50 @@ public class CarrouselActivity extends BaseActivity implements View.OnClickListe
         preBtn.setOnClickListener(this);
 
         nextViewSwitcher();
+    }
+
+    private void initViewFlipper() {
+        viewFlipper = findViewById(R.id.view_flipper);
+        noticeCount = 20;
+        for (int i = 0; i < noticeCount; i++) {
+            TextView textView = new TextView(CarrouselActivity.this);
+            textView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            textView.setText(CarrouselActivity.this.getString(R.string.notice_item, i < 10 ? "0" + i : i + ""));
+            viewFlipper.addView(textView);
+        }
+
+    }
+
+    private void startFlipper() {
+        if (viewFlipper != null) {
+            viewFlipper.startFlipping();
+        }
+    }
+
+    private void stopFlipper() {
+        if (viewFlipper != null) {
+            viewFlipper.stopFlipping();
+        }
+    }
+
+    private boolean isFlipper() {
+        boolean isFlipper = false;
+        if (viewFlipper != null) {
+            isFlipper = viewFlipper.isFlipping();
+        }
+        return isFlipper;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startFlipper();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopFlipper();
     }
 
     @Override
