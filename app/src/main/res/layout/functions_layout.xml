@@ -1,42 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/sc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
 
-        <Button
-            android:id="@+id/home_down_btn"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="home键的监听" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/text_fold_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="折叠文案" />
+            <Button
+                android:id="@+id/home_down_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="home键的监听" />
 
-        <Button
-            android:id="@+id/layout_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="layout" />
+            <Button
+                android:id="@+id/text_fold_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="折叠文案" />
 
-        <Button
-            android:id="@+id/widget_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="widget" />
+            <Button
+                android:id="@+id/layout_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="layout" />
 
-        <Button
-            android:id="@+id/carrousel_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="carrousel" />
+            <Button
+                android:id="@+id/widget_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="widget" />
 
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:id="@+id/carrousel_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="carrousel" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/to_top_iv"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom|right"
+        android:background="@drawable/top" />
+
+    <ImageView
+        android:id="@+id/to_bottom_iv"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/bottom" />
+</FrameLayout>

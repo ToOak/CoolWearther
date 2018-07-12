@@ -2,6 +2,8 @@ package com.cc.xsl.coolweather.fragment;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
@@ -18,6 +20,8 @@ import com.cc.xsl.coolweather.base.BaseFragment;
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
     Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, carrouselBtn;
+    ScrollView sc;
+    ImageView toTopIv, toBottomIv;
 
     @Override
     protected void initViews(View view) {
@@ -31,6 +35,43 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         widgetBtn.setOnClickListener(this);
         carrouselBtn = view.findViewById(R.id.carrousel_btn);
         carrouselBtn.setOnClickListener(this);
+        sc = view.findViewById(R.id.sc);
+        toTopIv = view.findViewById(R.id.to_top_iv);
+        toBottomIv = view.findViewById(R.id.to_bottom_iv);
+        toBottomIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sc.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        sc.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                // 滚动到底部
+                                sc.fullScroll(ScrollView.FOCUS_DOWN);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        toTopIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sc.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        sc.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                // 滚动至顶部
+                                sc.fullScroll(ScrollView.FOCUS_UP);
+                            }
+                        });
+                    }
+                });
+            }
+        });
     }
 
     @Override
