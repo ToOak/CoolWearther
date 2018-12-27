@@ -7,7 +7,6 @@ import android.content.Context;
 
 import com.cc.xsl.coolweather.util.ToastUtil;
 
-import java.lang.annotation.Native;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,11 @@ public class MyApplication extends Application {
         super.onCreate();
         app = this;
         context = getApplicationContext();
-        ToastUtil.showErrorMessage("JNI测试", getStringFromC());
+        ToastUtil.showErrorMessage("JNI测试", getStringFromC()
+//                + "\n" + TestC.fromC()
+                + "\n" + CMakeTest.stringFromC()
+                + "\n" + CMakeTest.stringFromCpp()
+        );
     }
 
     public static Context getContext() {
@@ -65,7 +68,7 @@ public class MyApplication extends Application {
 
     public native String getStringFromC();
 
-    static   {
+    static {
         System.loadLibrary("hello");
     }
 }

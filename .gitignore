@@ -50,3 +50,4 @@ captures/
 gradlew.bat
 gradlew
 gradle.properties
+app/.externalNativeBuild/
