@@ -7,6 +7,7 @@ import android.widget.ScrollView;
 
 import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
+import com.cc.xsl.coolweather.activity.AudioActivity;
 import com.cc.xsl.coolweather.activity.CarrouselActivity;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
@@ -19,7 +20,8 @@ import com.cc.xsl.coolweather.base.BaseFragment;
  */
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
-    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, carrouselBtn;
+    Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, carrouselBtn,
+            audioBtn;
     ScrollView sc;
     ImageView toTopIv, toBottomIv;
 
@@ -35,6 +37,8 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         widgetBtn.setOnClickListener(this);
         carrouselBtn = view.findViewById(R.id.carrousel_btn);
         carrouselBtn.setOnClickListener(this);
+        audioBtn = view.findViewById(R.id.audio_btn);
+        audioBtn.setOnClickListener(this);
         sc = view.findViewById(R.id.sc);
         toTopIv = view.findViewById(R.id.to_top_iv);
         toBottomIv = view.findViewById(R.id.to_bottom_iv);
@@ -103,6 +107,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.carrousel_btn: {
                 startActivity(CarrouselActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.audio_btn: {
+                startActivity(AudioActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }
