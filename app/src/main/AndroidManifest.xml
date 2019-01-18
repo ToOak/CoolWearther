@@ -3,13 +3,15 @@
     package="com.cc.xsl.coolweather">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <!-- TODO 以下权限为虾米找不到 ？？？-->
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".MyApplication"
@@ -82,17 +84,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <activity android:name=".activity.LayoutActivity"/>
-        <activity android:name=".activity.layout.AbsoluteActivity"/>
-        <activity android:name=".activity.layout.FrameActivity"/>
-        <activity android:name=".activity.layout.GridActivity"/>
-        <activity android:name=".activity.layout.LinearActivity"/>
-        <activity android:name=".activity.layout.RelativeActivity"/>
-        <activity android:name=".activity.layout.TableActivity"/>
-        <activity android:name=".activity.WidgetActivity"
-            android:theme="@style/WidgetTheme"/>
-        <activity android:name=".activity.CarrouselActivity"/>
+
+        <activity android:name=".activity.LayoutActivity" />
+        <activity android:name=".activity.layout.AbsoluteActivity" />
+        <activity android:name=".activity.layout.FrameActivity" />
+        <activity android:name=".activity.layout.GridActivity" />
+        <activity android:name=".activity.layout.LinearActivity" />
+        <activity android:name=".activity.layout.RelativeActivity" />
+        <activity android:name=".activity.layout.TableActivity" />
+        <activity
+            android:name=".activity.WidgetActivity"
+            android:theme="@style/WidgetTheme" />
+        <activity android:name=".activity.CarrouselActivity" />
         <activity android:name=".activity.AudioActivity" />
+        <activity android:name=".activity.ZipActivity" />
     </application>
 
 </manifest>

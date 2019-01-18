@@ -50,6 +50,12 @@
                 android:layout_height="wrap_content"
                 android:text="audio" />
 
+            <Button
+                android:id="@+id/zip_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="zip" />
+
         </LinearLayout>
 
     </ScrollView>

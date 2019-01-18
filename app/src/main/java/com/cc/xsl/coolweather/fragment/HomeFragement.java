@@ -13,6 +13,7 @@ import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
 import com.cc.xsl.coolweather.activity.TextFoldActivity;
 import com.cc.xsl.coolweather.activity.WidgetActivity;
+import com.cc.xsl.coolweather.activity.ZipActivity;
 import com.cc.xsl.coolweather.base.BaseFragment;
 
 /**
@@ -21,7 +22,7 @@ import com.cc.xsl.coolweather.base.BaseFragment;
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
     Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, carrouselBtn,
-            audioBtn;
+            audioBtn, zipBtn;
     ScrollView sc;
     ImageView toTopIv, toBottomIv;
 
@@ -39,6 +40,8 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         carrouselBtn.setOnClickListener(this);
         audioBtn = view.findViewById(R.id.audio_btn);
         audioBtn.setOnClickListener(this);
+        zipBtn = view.findViewById(R.id.zip_btn);
+        zipBtn.setOnClickListener(this);
         sc = view.findViewById(R.id.sc);
         toTopIv = view.findViewById(R.id.to_top_iv);
         toBottomIv = view.findViewById(R.id.to_bottom_iv);
@@ -111,6 +114,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.audio_btn: {
                 startActivity(AudioActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.zip_btn: {
+                startActivity(ZipActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }
