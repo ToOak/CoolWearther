@@ -98,6 +98,7 @@
         <activity android:name=".activity.CarrouselActivity" />
         <activity android:name=".activity.AudioActivity" />
         <activity android:name=".activity.ZipActivity" />
+        <activity android:name=".activity.View2BitmapActivity" />
     </application>
 
 </manifest>

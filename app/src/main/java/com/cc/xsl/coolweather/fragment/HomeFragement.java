@@ -12,6 +12,7 @@ import com.cc.xsl.coolweather.activity.CarrouselActivity;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
 import com.cc.xsl.coolweather.activity.TextFoldActivity;
+import com.cc.xsl.coolweather.activity.View2BitmapActivity;
 import com.cc.xsl.coolweather.activity.WidgetActivity;
 import com.cc.xsl.coolweather.activity.ZipActivity;
 import com.cc.xsl.coolweather.base.BaseFragment;
@@ -22,7 +23,7 @@ import com.cc.xsl.coolweather.base.BaseFragment;
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
     Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, carrouselBtn,
-            audioBtn, zipBtn;
+            audioBtn, zipBtn, viewToBitmapBtn;
     ScrollView sc;
     ImageView toTopIv, toBottomIv;
 
@@ -45,6 +46,8 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         sc = view.findViewById(R.id.sc);
         toTopIv = view.findViewById(R.id.to_top_iv);
         toBottomIv = view.findViewById(R.id.to_bottom_iv);
+        viewToBitmapBtn = view.findViewById(R.id.view_to_bitmap_btn);
+        viewToBitmapBtn.setOnClickListener(this);
         toBottomIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +121,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.zip_btn: {
                 startActivity(ZipActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.view_to_bitmap_btn: {
+                startActivity(View2BitmapActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }

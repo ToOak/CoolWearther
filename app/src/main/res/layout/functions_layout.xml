@@ -56,6 +56,12 @@
                 android:layout_height="wrap_content"
                 android:text="zip" />
 
+            <Button
+                android:id="@+id/view_to_bitmap_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="view to bitmap" />
+
         </LinearLayout>
 
     </ScrollView>
