@@ -62,6 +62,12 @@
                 android:layout_height="wrap_content"
                 android:text="view to bitmap" />
 
+            <Button
+                android:id="@+id/blue_tooth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="blue_tooth" />
+
         </LinearLayout>
 
     </ScrollView>

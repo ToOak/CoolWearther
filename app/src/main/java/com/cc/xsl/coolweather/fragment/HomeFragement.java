@@ -8,6 +8,7 @@ import android.widget.ScrollView;
 import com.cc.xsl.coolweather.MyApplication;
 import com.cc.xsl.coolweather.R;
 import com.cc.xsl.coolweather.activity.AudioActivity;
+import com.cc.xsl.coolweather.activity.BlueToothActivity;
 import com.cc.xsl.coolweather.activity.CarrouselActivity;
 import com.cc.xsl.coolweather.activity.HomeDownActivity;
 import com.cc.xsl.coolweather.activity.LayoutActivity;
@@ -23,7 +24,7 @@ import com.cc.xsl.coolweather.base.BaseFragment;
 public class HomeFragement extends BaseFragment implements View.OnClickListener {
 
     Button homeDownBtn, textFoldBtn, layoutBtn, widgetBtn, carrouselBtn,
-            audioBtn, zipBtn, viewToBitmapBtn;
+            audioBtn, zipBtn, viewToBitmapBtn, blueToothBtn;
     ScrollView sc;
     ImageView toTopIv, toBottomIv;
 
@@ -45,6 +46,8 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
         zipBtn.setOnClickListener(this);
         sc = view.findViewById(R.id.sc);
         toTopIv = view.findViewById(R.id.to_top_iv);
+        blueToothBtn = view.findViewById(R.id.blue_tooth_btn);
+        blueToothBtn.setOnClickListener(this);
         toBottomIv = view.findViewById(R.id.to_bottom_iv);
         viewToBitmapBtn = view.findViewById(R.id.view_to_bitmap_btn);
         viewToBitmapBtn.setOnClickListener(this);
@@ -125,6 +128,10 @@ public class HomeFragement extends BaseFragment implements View.OnClickListener 
             }
             case R.id.view_to_bitmap_btn: {
                 startActivity(View2BitmapActivity.getAction(MyApplication.getApp()));
+                break;
+            }
+            case R.id.blue_tooth_btn: {
+                startActivity(BlueToothActivity.getAction(MyApplication.getApp()));
                 break;
             }
         }

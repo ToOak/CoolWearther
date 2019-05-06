@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cc.xsl.coolweather">
+    <!-- 使用蓝牙的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- 扫描蓝牙设备或者操作蓝牙设置 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--模糊定位权限，仅作用于6.0+-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--精准定位权限，仅作用于6.0+-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -99,6 +107,7 @@
         <activity android:name=".activity.AudioActivity" />
         <activity android:name=".activity.ZipActivity" />
         <activity android:name=".activity.View2BitmapActivity" />
+        <activity android:name=".activity.BlueToothActivity" />
     </application>
 
 </manifest>
